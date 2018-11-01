@@ -1,8 +1,6 @@
-print('------request请求组合成函数------')
-
-import pprint
 import requests
-import time
+
+print('------request请求组合成函数------')
 
 def fun_get():
     parms ={
