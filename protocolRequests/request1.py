@@ -34,11 +34,11 @@ reqHeaders = {
     'username':'zhangsan',
     'password':'111111'
 }
-r3 = requests.get("http://localhost:8088/api/mgr/sq_mgr/",
-                  params=parms,
-                  headers=reqHeaders)
-responseJSONobj = r3.json()
-pprint.pprint(responseJSONobj)
+# r3 = requests.get("http://localhost:8088/api/mgr/sq_mgr/",
+#                   params=parms,
+#                   headers=reqHeaders)
+# responseJSONobj = r3.json()
+# pprint.pprint(responseJSONobj)
 # 1.设置body
 # data 记录默认消息体中数据格式为content-type:application/x-www-form-urlencoded
 # data 为字典，如果换行需使用换行符'''xxxxxxxxxx'''
@@ -58,20 +58,21 @@ pprint.pprint(responseJSONobj)
 
 # 2.设置body
 # json格式的方法构建。消息体中数据格式为json。content-type:application/json
-# reqJSONdata = {
-#     'action':'add_course_json',
-#     'data':{
-#                 "name":"课程名称jsond5",
-#                 "desc":'课程描述jsond5',
-#                 "display_idx":2
-#             }
-# }
+reqJSONdata = {
+    'action':'add_course_json',
+    'data':{
+                "name":"课程名称jsond5",
+                "desc":'课程描述jsond5',
+                "display_idx":2
+            }
+}
 # 注意此时双引号，单引号都行，Python中会自动转为双引号字符串。
-# r5 = requests.post("http://localhost:8088/apijson/mgr/sq_mgr/",
-#                    headers=reqHeaders,
-#                    json=reqJSONdata)
+r5 = requests.post("http://localhost:8088/apijson/mgr/sq_mgr/",
+                   headers=reqHeaders,
+                   params=parms,
+                   json=reqJSONdata)
 # 接收请求返回的消息体数据
-# print(r5.text)
+print(r5.text)
 # 用断言验证返回结果数据
 # assert '"retcode": 0' in r5.text
 
